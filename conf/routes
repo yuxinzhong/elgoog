@@ -1,0 +1,16 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index()
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
+
+GET     /search                     controllers.Application.search(query:String)
+
+GET     /document                     controllers.Application.document(id:Int)
+
+GET     /recompute                  controllers.Application.recompute(query:String,responseUUID:String,one:Boolean?=false,two:Boolean?=false,three:Boolean?=false,four:Boolean?=false,five:Boolean?=false,six:Boolean?=false,seven:Boolean?=false,eight:Boolean?=false,nine:Boolean?=false,ten:Boolean?=false)
+

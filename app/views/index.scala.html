@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>HW3 search</title>
+    <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+    <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/bootstrapSwitch.css")">   
+    <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+    <script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.at("javascripts/myJs.js")" type="text/javascript"></script>
+    <script src="http://yui.yahooapis.com/3.10.0/build/yui/yui-min.js"></script>
+
+</head>
+<body>
+    <div style="margin-left:10px;margin-top:5px">
+        <img src="/assets/images/madeByYuxinZhong.png"/>
+    </div>
+    <div style="margin-top:180px;margin-left:auto;margin-right:auto;width:600px">
+        <img src="/assets/images/home.png"/>
+    </div>
+    <div style="margin-top:50px;margin-left:auto;margin-right:auto;width:60%">
+    <form name="input" action="search" method="get" class="yui3-skin-sam">
+        <input type="text" name="query" style="width:75%;margin-left:10%;margin-right:10%;height:46px" id="ac-input">
+    </form>
+    </div>
+    <script>
+        YUI().use('autocomplete', 'autocomplete-highlighters', function (Y) {
+        Y.one('#ac-input').plug(Y.Plugin.AutoComplete, {
+        resultHighlighter: 'phraseMatch',
+        source: 'select * from search.suggest where query="{query}"',
+        yqlEnv: 'http://pieisgood.org/yql/tables.env'
+        });
+        });
+    </script>
+</body>
+</html>
